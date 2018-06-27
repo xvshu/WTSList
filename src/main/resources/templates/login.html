@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>WTSLogin</title>
+		<meta charset="utf-8">
+		<link th:href="@{css/login/style.css}" rel='stylesheet' type='text/css' />
+
+		<script th:src='@{js/jquery-1.8.3.min.js}'></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> 
+
+		function login(){
+		    var l_user=$("#l_user").val();
+		    if(l_user==null || l_user==""){
+		        alert("用户名不能为空");
+		        return false;
+			}
+            var l_pass=$("#l_pass").val();
+            if(l_pass==null || l_pass==""){
+                alert("密码不能为空");
+                return false;
+            }
+
+            var loginurl = "/login/check";
+            $.post(loginurl,{userName:l_user,password:l_pass},function(data,status){
+                if(status){
+                    if(data=="ok"){
+                        window.location.href='/manager/wts/list';
+					}else{
+                        alert("用户名密码错误");
+					}
+
+                }else{
+                    alert("网络失败");
+                }
+            },"text");
+            return false;
+		}
+
+		</script>
+</head>
+<body>
+	 <!-----start-main---->
+	 <div class="main">
+		<div class="login-form">
+			<h1>WTS Login</h1>
+					<div class="head">
+						<img style="height:120px;" th:src="@{img/user.png}" alt=""/>
+					</div>
+					<div li="login">
+							用户:<input type="text" id="l_user"   >
+							密码：<input type="password" id="l_pass" >
+							<div >
+								<button li="login"  onclick="login()"  >登录</button>
+							</div>
+					</div>
+			</div>
+			<!--//End-login-form-->
+			 <!-----start-copyright---->
+			<div class="copy-right">
+				<p>Copyright &copy; 2018.XVSHU.<a target="_blank" href="https://blog.csdn.net/xvshu">CSDN</a></p>
+			</div>
+				<!-----//end-copyright---->
+		</div>
+			 <!-----//end-main---->
+</body>
+</html>

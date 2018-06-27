@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  	<meta charset="UTF-8">
+  	<title>WebList</title>
+
+  	<link rel="stylesheet" th:href="@{css/reset.css}">
+	<link rel="stylesheet" th:href="@{css/style.css}" media="screen" type="text/css" />
+
+	<script th:src='@{js/jquery.js}'></script>
+	<script th:src="@{js/index.js}"></script>
+
+</head>
+
+<body>
+<div style="text-align:center;clear:both;">
+</div>
+  <div class="tab">
+
+	<ul class="tabs">
+		<li th:each="lm:${mapWTS}"><a th:text="${lm.key}" href="#"></a></li>
+	</ul> <!-- / tabs -->
+
+	<div class="tab_content">
+
+		<div class="tabs_item" th:each="em:${mapWTS}" >
+			<div th:each="tm:${em.value}">
+				<h4><td th:text="${tm.key}"></td></h4>
+				<x_tabs th:each="ul:${tm.value}"><a target="_blank" th:text="${ul.NAME}" th:href="${ul.URL}"></a>&nbsp;&nbsp;&nbsp;&nbsp;</x_tabs>
+				<HR style="border:1 dashed #987cb9" width="100%" color=#987cb9 SIZE=1>
+			</div>
+		</div> <!-- / tabs_item -->
+
+	</div> <!-- / tab_content -->
+</div> <!-- / tab -->
+<script th:src='@{js/jquery.js}'></script>
+<script th:src="@{js/index.js}"></script>
+
+</body>
+
+</html>
