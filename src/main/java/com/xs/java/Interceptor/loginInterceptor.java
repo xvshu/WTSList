@@ -8,15 +8,15 @@ import javax.servlet.http.HttpSession;
 
 public class loginInterceptor implements HandlerInterceptor {
 
-    private String[] passurl = {"login","logout","wlist","css","js","img"};
+    private String[] authurl = {"manager"};
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
 
         String url = request.getRequestURL().toString();
-        for(String onePassUrl : passurl){
-            if(url.contains(onePassUrl)){
+        for(String oneAuthUrl : authurl){
+            if(!url.contains(oneAuthUrl)){
                 return true;
             }
         }

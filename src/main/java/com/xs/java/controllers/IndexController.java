@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +19,11 @@ public class IndexController {
 
     @Autowired
     private WebTablesService webTablesService;
+
+    @RequestMapping("/")
+    public String index(HttpSession session) {
+        return "redirect:/wlist";
+    }
 
     @RequestMapping("/wlist")
     public String index(Model model){

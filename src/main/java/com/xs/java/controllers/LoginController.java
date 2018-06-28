@@ -28,14 +28,6 @@ public class LoginController {
     @Autowired
     private WebTablesService webTablesService;
 
-    @RequestMapping("/")
-    public String index(HttpSession session) {
-        if((boolean)session.getAttribute("user")){
-            return "redirect:/manager/wts/list";
-        }else{
-            return "redirect:/login";
-        }
-    }
 
     @RequestMapping("/login")
     public String index(Model model){

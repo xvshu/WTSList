@@ -15,12 +15,14 @@
 </head>
 
 <body>
-<div style="text-align:center;clear:both;">
+<div style="text-align:left;clear:both;padding-top: 20px;width: 70%;margin: 0 auto;color: #888;">
+	<h1 style="font-size: 24px" >WTS 网址导航&nbsp;&nbsp;&nbsp;<a href="/manager/wts/list" target="_blank" >管理员操作</a></h1><br>
 </div>
-  <div class="tab">
 
+  <div class="tab" style="padding-top: 20px;">
 	<ul class="tabs">
 		<li th:each="lm:${mapWTS}"><a th:text="${lm.key}" href="#"></a></li>
+
 	</ul> <!-- / tabs -->
 
 	<div class="tab_content">
